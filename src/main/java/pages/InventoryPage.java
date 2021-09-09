@@ -1,4 +1,4 @@
 package pages;
 
-public interface InventoryPage extends BasePage{
+public interface InventoryPage extends BasePage {
 }
