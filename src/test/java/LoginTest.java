@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void loginTest() {
 
         getUser().openHomePage()
