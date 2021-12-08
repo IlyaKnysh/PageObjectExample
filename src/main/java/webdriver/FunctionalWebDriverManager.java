@@ -25,7 +25,7 @@ public class FunctionalWebDriverManager extends WebDriverManagerAbstract {
         chromeOptions.setExperimentalOption("prefs", chromePrefs)
                 .setExperimentalOption("excludeSwitches", asList("enable-automation", "load-extension"))
                 .addArguments("--alsoDoNotRetry-certificate-errors, --restrict-iframe-permissions",
-                        "--disable-popup-blocking", "disable-infobars", "--disable-extensions", "--headless", "window-size=1980,1080");
+                        "--disable-popup-blocking", "disable-infobars", "--disable-extensions",  "window-size=1980,1080");
         chromeOptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         chromeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
         driver = new ChromeDriver(chromeOptions);
