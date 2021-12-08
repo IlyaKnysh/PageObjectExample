@@ -1,9 +1,14 @@
+import io.restassured.RestAssured;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import steps.WebDriverSteps;
 import webdriver.FunctionalWebDriverManager;
 import webdriver.WebDriverManagerAbstract;
+
+import static io.restassured.RestAssured.given;
+import static propsResolver.Properties.props;
 
 public abstract class BaseTest {
 
@@ -12,6 +17,13 @@ public abstract class BaseTest {
 
     public WebDriverSteps getUser() {
         return steps.get();
+    }
+
+    @BeforeClass(alwaysRun = true)
+    public void initRestAssured() {
+        RestAssured.baseURI = props.apiUrl();
+        RestAssured.requestSpecification = given()
+                .relaxedHTTPSValidation();
     }
 
     @BeforeMethod(alwaysRun = true)
