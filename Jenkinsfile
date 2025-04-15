@@ -1,16 +1,16 @@
 pipeline {
-    agent { label 'windows' }
+    agent any
 
     stages {
         stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
 
         stage('Smoke tests') {
                     steps {
-                        bat 'mvn test -Dgroups=smoke'
+                        sh 'mvn test -Dgroups=smoke'
                     }
                 }
     }
